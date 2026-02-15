@@ -31,7 +31,18 @@ async function main() {
     }
 
     // Treasury balance
-    const treasuryAddr = "0xd4E2B965D0c08CE9e647a3Ee2bf9803B0Cc291E3";
+    const path = require("path");
+    const fs = require("fs");
+    const deploymentPath = path.join(__dirname, "..", "deployed-addresses.json");
+    if (!fs.existsSync(deploymentPath)) {
+        console.error("Error: deployed-addresses.json not found.");
+        return;
+    }
+    const deployment = JSON.parse(fs.readFileSync(deploymentPath, "utf-8"));
+    const treasuryAddr = deployment.treasury;
+
+    console.log("Treasury Address:", treasuryAddr);
+
     const treasury = await ethers.getContractAt(
         ["function getBalance() view returns (uint256)"],
         treasuryAddr

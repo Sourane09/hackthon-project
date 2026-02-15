@@ -4,7 +4,7 @@ import * as path from "path";
 
 async function main() {
     // 1. Get Amount
-    const amountStr = process.env.AMOUNT || "1000"; // Default 1000 HLUSD
+    const amountStr = (process.env.AMOUNT || "1000").trim(); // Default 1000 HLUSD
     const amount = ethers.parseEther(amountStr);
 
     console.log(`Funding Treasury with ${amountStr} HLUSD...`);

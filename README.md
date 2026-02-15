@@ -276,6 +276,33 @@ hackathon/
 
 ---
 
+## 🚀 Deployment
+
+### Smart Contracts (HeLa Testnet)
+
+1.  **Configure**: Ensure `contracts/.env` has `DEPLOYER_PRIVATE_KEY`.
+2.  **Deploy**:
+    ```bash
+    cd contracts
+    npx hardhat run scripts/deploy_prod.ts --network hela_testnet
+    ```
+3.  **Verify**: scripts will automatically update `frontend/src/config/contracts.ts`.
+
+### Frontend (Vercel)
+
+This project is a monorepo. To deploy the frontend to Vercel:
+
+1.  **Import** the repository in Vercel.
+2.  **Configure Project**:
+    -   **Framework Preset**: Next.js
+    -   **Root Directory**: Click "Edit" and select `frontend`.
+        *(This is crucial because the Next.js app lives in a subdirectory)*
+3.  **Environment Variables**:
+    -   Add `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` (if using WalletConnect).
+4.  **Deploy**!
+
+---
+
 ## 📄 License
 
 MIT
