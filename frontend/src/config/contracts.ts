@@ -12,6 +12,7 @@ export const helaTestnet = defineChain({
         default: {
             name: "HeLa Explorer",
             url: "https://testnet-blockexplorer.helachain.com",
+            apiUrl: "https://testnet-blockexplorer.helachain.com/api",
         },
     },
     testnet: true,
